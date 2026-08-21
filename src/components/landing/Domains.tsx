@@ -1,43 +1,49 @@
 import React, { useEffect, useRef } from 'react';
 import anime from 'animejs';
-import { Brain, Code2, Paintbrush, FileText, Briefcase, Calendar } from 'lucide-react';
+import { DomainGraphic } from './DomainGraphic';
 
 const domains = [
   {
     title: 'AI/ML',
     description: 'Build predictive models, dive into neural networks, and explore the future of artificial intelligence in earth sciences.',
-    Icon: Brain,
-    color: 'text-red-500',
+    color: 'text-cyan-400',
+    glowColor: 'group-hover:shadow-[0_0_50px_rgba(34,211,238,0.25)]',
+    borderColor: 'group-hover:border-cyan-500/30',
   },
   {
     title: 'Web Dev',
     description: 'Craft high-performance, accessible, and stunning web experiences.',
-    Icon: Code2,
-    color: 'text-blue-500',
+    color: 'text-blue-400',
+    glowColor: 'group-hover:shadow-[0_0_50px_rgba(59,130,246,0.25)]',
+    borderColor: 'group-hover:border-blue-500/30',
   },
   {
     title: 'Creatives',
     description: 'Define our visual identity through UI/UX design, 3D modeling, and motion graphics.',
-    Icon: Paintbrush,
-    color: 'text-white',
+    color: 'text-purple-400',
+    glowColor: 'group-hover:shadow-[0_0_50px_rgba(168,85,247,0.25)]',
+    borderColor: 'group-hover:border-purple-500/30',
   },
   {
     title: 'Content & Research',
     description: 'Investigate complex topics and distill them into compelling technical papers and blogs.',
-    Icon: FileText,
-    color: 'text-purple-400',
+    color: 'text-teal-400',
+    glowColor: 'group-hover:shadow-[0_0_50px_rgba(20,184,166,0.25)]',
+    borderColor: 'group-hover:border-teal-500/30',
   },
   {
     title: 'Corporate',
     description: 'Forge strategic partnerships and manage external relations to fund our ambitious projects.',
-    Icon: Briefcase,
     color: 'text-yellow-500',
+    glowColor: 'group-hover:shadow-[0_0_50px_rgba(234,179,8,0.25)]',
+    borderColor: 'group-hover:border-yellow-500/30',
   },
   {
     title: 'Events',
     description: 'Orchestrate massive hackathons and tech talks. Handle logistics and execution seamlessly.',
-    Icon: Calendar,
-    color: 'text-cyan-400',
+    color: 'text-red-400',
+    glowColor: 'group-hover:shadow-[0_0_50px_rgba(239,68,68,0.25)]',
+    borderColor: 'group-hover:border-red-500/30',
   }
 ];
 
@@ -109,11 +115,10 @@ const Domains = () => {
                     </p>
                   </div>
 
-                  {/* Icon Side */}
+                  {/* Graphic Side */}
                   <div className="flex-shrink-0 relative">
-                    <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-white/10 flex items-center justify-center bg-black/50 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)] group hover:border-white/30 transition-all duration-500">
-                      <div className="absolute inset-0 rounded-full border-2 border-white/5 group-hover:scale-110 transition-transform duration-500" />
-                      <domain.Icon className="text-white opacity-80 group-hover:opacity-100 transition-opacity duration-300" size={56} strokeWidth={1} />
+                    <div className={`w-40 h-40 md:w-60 md:h-60 rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center bg-black/50 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)] ${domain.borderColor} ${domain.glowColor} transition-all duration-500 group-hover:scale-105`}>
+                      <DomainGraphic domain={domain.title} />
                     </div>
                   </div>
 
